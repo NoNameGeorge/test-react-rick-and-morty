@@ -12,11 +12,6 @@ export type Species =
 	| 'Disease'
 	| 'Mythological Creature'
 
-export interface IStatus {
-	name: string
-	value: boolean
-} 
-
 export interface ICharacter {
 	id: number
 	name: string

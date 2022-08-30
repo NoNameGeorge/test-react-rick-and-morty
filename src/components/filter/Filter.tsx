@@ -20,10 +20,12 @@ const Filter: FC = () => {
                 onChange={setName}
             />
             <FilterByStatus />
+            {/* <FilterByGender />
+            <FilterBySpecies />
 
             <div className={classes.subtitle}>Выберите пол персонажа:</div>
 
-            <div className={classes.subtitle}>Выберите вид персонажа:</div>
+            <div className={classes.subtitle}>Выберите вид персонажа:</div> */}
 
         </div>
     );

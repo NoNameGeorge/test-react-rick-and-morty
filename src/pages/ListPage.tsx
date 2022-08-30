@@ -9,16 +9,16 @@ import classes from './ListPage.module.scss'
 const ListPage: FC = () => {
 	const dispatch = useAppDispatch()
 
-	const { page } = useAppSelector((state) => state.character)
+	// const { page } = useAppSelector((state) => state.character)
 
 	useEffect(() => {
-		if (!page) {
+		// if (!page) {
 			dispatch(
 				getCharacterListWithOption({
 					page: 0,
 				})
 			)
-		}
+		// }
 	}, [])
 
 	return (

@@ -1,16 +1,21 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
-import { IStatus } from '../../types/ICharacter'
-import { useAppSelector } from '../../hooks/redux'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { characterSlice } from '../../store/slices/characterSlice'
+import { Status } from '../../types/ICharacter'
 
 import FilterCheckbox from './FilterCheckbox'
 
 import classes from './FilterByStatus.module.scss'
 
 const FilterByStatus: FC = () => {
+	const dispacth = useAppDispatch()
+
 	const { status } = useAppSelector((state) => state.character.filterSettings)
 
-	const handleChanges = (name: string) => {}
+	const handleChanges = (name: Status) => {
+		dispacth(characterSlice.actions.toggleStatus(name))
+	}
 
 	return (
 		<div className={classes.wrapper}>
@@ -21,6 +26,7 @@ const FilterByStatus: FC = () => {
 						return (
 							<FilterCheckbox
 								key={`filter-by-status-${statusItem.name}`}
+								name={statusItem.name}
 								value={statusItem.value}
 								onChange={handleChanges}
 							/>

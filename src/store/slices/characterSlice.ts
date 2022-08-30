@@ -1,19 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { ICharacter, IStatus } from '../../types/ICharacter'
+import { ICharacter, Status } from '../../types/ICharacter'
+import { IFilter } from '../../types/IFilter'
 
 interface CharacterState {
 	isLoading: boolean
 	error: string
 	activeCharacter: ICharacter | null
 	list: ICharacter[]
-	filterSettings: {
-		name: string
-		page: 0
-		status: IStatus[]
-		species: IStatus[]
-		gender: IStatus[]
-	}
+	filterSettings: IFilter
 }
 
 const initialState: CharacterState = {
@@ -29,13 +24,13 @@ const initialState: CharacterState = {
 			{ name: 'Dead', value: false },
 			{ name: 'unknown', value: false },
 		],
-		species: [
+		gender: [
 			{ name: 'Female', value: false },
 			{ name: 'Male', value: false },
 			{ name: 'Genderless', value: false },
 			{ name: 'unknown', value: false },
 		],
-		gender: [
+		species: [
 			{ name: 'Human', value: false },
 			{ name: 'Alien', value: false },
 			{ name: 'Humanoid', value: false },
@@ -72,6 +67,16 @@ export const characterSlice = createSlice({
 		},
 		setActiveCharacter(state, action: PayloadAction<ICharacter | null>) {
 			state.activeCharacter = action.payload
+		},
+		toggleStatus(state, action: PayloadAction<Status>) {
+			state.filterSettings.status = state.filterSettings.status.map((statusItem) => {
+				if (statusItem.name === action.payload) return {
+					...statusItem,
+					value: !statusItem.value
+				}
+				
+				return statusItem
+			})
 		},
 		// setPage(state, action: PayloadAction<number>) {
 		// 	state.page = action.payload

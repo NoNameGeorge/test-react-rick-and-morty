@@ -1,8 +1,11 @@
 .wrapper {
     .title {
-
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: 500;
     }
     .inner {
-        
+        display: flex;
+        margin-right: -20px;
     }
 }
