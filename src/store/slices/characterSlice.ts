@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { ICharacter, Status } from '../../types/ICharacter'
+import { Gender, ICharacter, Species, Status } from '../../types/ICharacter'
 import { IFilter } from '../../types/IFilter'
 
 interface CharacterState {
@@ -76,6 +76,26 @@ export const characterSlice = createSlice({
 				}
 				
 				return statusItem
+			})
+		},
+		toggleGender(state, action: PayloadAction<Gender>) {
+			state.filterSettings.gender = state.filterSettings.gender.map((genderItem) => {
+				if (genderItem.name === action.payload) return {
+					...genderItem,
+					value: !genderItem.value
+				}
+				
+				return genderItem
+			})
+		},
+		toggleSpecies(state, action: PayloadAction<Species>) {
+			state.filterSettings.species = state.filterSettings.species.map((speciesItem) => {
+				if (speciesItem.name === action.payload) return {
+					...speciesItem,
+					value: !speciesItem.value
+				}
+				
+				return speciesItem
 			})
 		},
 		// setPage(state, action: PayloadAction<number>) {

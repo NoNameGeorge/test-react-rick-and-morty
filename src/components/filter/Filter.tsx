@@ -2,8 +2,11 @@ import { FC, useState } from 'react';
 
 import FilterInput from './FilterInput';
 
-import classes from './Filter.module.scss'
 import FilterByStatus from './FilterByStatus';
+import FilterByGender from './FilterByGender';
+
+import classes from './Filter.module.scss'
+import FilterBySpecies from './FilterBySpecies';
 
 const Filter: FC = () => {
     const [name, setName] = useState('')
@@ -20,8 +23,10 @@ const Filter: FC = () => {
                 onChange={setName}
             />
             <FilterByStatus />
-            {/* <FilterByGender />
+            <FilterByGender />
             <FilterBySpecies />
+            {/* 
+            
 
             <div className={classes.subtitle}>Выберите пол персонажа:</div>
 

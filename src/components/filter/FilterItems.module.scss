@@ -6,6 +6,12 @@
     }
     .inner {
         display: flex;
+        flex-wrap: wrap;
         margin-right: -20px;
+    }
+    &:last-child {
+        .inner {
+            margin-bottom: -10px;
+        }
     }
 }

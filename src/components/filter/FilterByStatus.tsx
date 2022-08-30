@@ -6,7 +6,7 @@ import { Status } from '../../types/ICharacter'
 
 import FilterCheckbox from './FilterCheckbox'
 
-import classes from './FilterByStatus.module.scss'
+import classes from './FilterItems.module.scss'
 
 const FilterByStatus: FC = () => {
 	const dispacth = useAppDispatch()
