@@ -229,7 +229,6 @@ body {
 }
 
 .btn {
-	@include no-btn();
 	border-radius: 30px;
 	font-weight: 500;
 	padding: 8px 20px;
@@ -261,7 +260,7 @@ body {
 		color: #ffffff;
 		box-shadow: 0 0 0 transparent;
 		&:hover {
-			box-shadow: $shadowSM;
+			// box-shadow: $shadowSM;
 			background: #039855;
 			border: 1px solid #039855;
 		}
@@ -288,7 +287,7 @@ body {
 			font-weight: 600;
 		}
 		&:hover {
-			box-shadow: $shadowSM;
+			// box-shadow: $shadowSM;
 		}
 		&:active {
 			box-shadow: 0 0 0 transparent;
