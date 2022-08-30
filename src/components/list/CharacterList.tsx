@@ -1,14 +1,11 @@
 import React, { FC } from 'react'
 
-import { ICharacter } from '../../types/ICharacter'
+import { useAppSelector } from '../../hooks/redux'
+
 import CharacterListItem from './CharacterListItem'
 
-interface CharacterListProps {
-	list: ICharacter[]
-}
-
-const CharacterList: FC<CharacterListProps> = ({ list }) => {
-	console.log(list)
+const CharacterList: FC = () => {
+	const { list, error, isLoading } = useAppSelector((state) => state.character)
 
 	return (
 		<div>

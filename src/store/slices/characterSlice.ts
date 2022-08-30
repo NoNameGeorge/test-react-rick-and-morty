@@ -1,12 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { ICharacter } from '../../types/ICharacter'
+import { ICharacter, IStatus } from '../../types/ICharacter'
 
 interface CharacterState {
 	isLoading: boolean
 	error: string
-	list: ICharacter[]
 	activeCharacter: ICharacter | null
+	list: ICharacter[]
+	filterSettings: {
+		name: string
+		page: 0
+		status: IStatus[]
+		species: IStatus[]
+		gender: IStatus[]
+	}
 }
 
 const initialState: CharacterState = {
@@ -14,10 +21,37 @@ const initialState: CharacterState = {
 	error: '',
 	list: [],
 	activeCharacter: null,
+	filterSettings: {
+		name: '',
+		page: 0,
+		status: [
+			{ name: 'Alive', value: false },
+			{ name: 'Dead', value: false },
+			{ name: 'unknown', value: false },
+		],
+		species: [
+			{ name: 'Female', value: false },
+			{ name: 'Male', value: false },
+			{ name: 'Genderless', value: false },
+			{ name: 'unknown', value: false },
+		],
+		gender: [
+			{ name: 'Human', value: false },
+			{ name: 'Alien', value: false },
+			{ name: 'Humanoid', value: false },
+			{ name: 'Poopybutthole', value: false },
+			{ name: 'Animal', value: false },
+			{ name: 'Robot', value: false },
+			{ name: 'Cronenberg', value: false },
+			{ name: 'Disease', value: false },
+			{ name: 'Mythological Creature', value: false },
+			{ name: 'unknown', value: false },
+		],
+	},
 }
 
-export const userSlice = createSlice({
-	name: 'user',
+export const characterSlice = createSlice({
+	name: 'character',
 	initialState,
 	reducers: {
 		setLoading(state, action: PayloadAction<boolean>) {
@@ -39,7 +73,10 @@ export const userSlice = createSlice({
 		setActiveCharacter(state, action: PayloadAction<ICharacter | null>) {
 			state.activeCharacter = action.payload
 		},
+		// setPage(state, action: PayloadAction<number>) {
+		// 	state.page = action.payload
+		// },
 	},
 })
 
-export default userSlice.reducer
+export default characterSlice.reducer

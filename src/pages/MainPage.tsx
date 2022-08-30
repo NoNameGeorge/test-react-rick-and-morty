@@ -1,9 +1,13 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
+
+import { Filter } from '../components/filter'
+
+import classes from './MainPage.module.scss'
 
 const MainPage: FC = () => {
 	return (
-		<div className='wrapper'>
-			<div className=''></div>
+		<div className={classes.wrapper}>
+			<Filter />
 		</div>
 	)
 }
