@@ -1,0 +1,304 @@
+* {
+	font-family: 'Inter', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #121212;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	background-color: rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #42d38b;
+	transition: ease 0.5s;
+}
+
+body {
+	background: #f8fafd;
+}
+
+.main-wrapper {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+}
+
+h1,
+.text-h1 {
+	font-family: 'NunitoSans', sans-serif;
+	font-size: 32px;
+	line-height: 40px;
+	// @media (max-width: 1200px) {
+	// 	font-size: calc(32px + 4 * ((100vw - 992px) / (1200 - 992)));
+	// 	line-height: calc(40px + 4 * ((100vw - 992px) / (1200 - 992)));
+	// }
+	@media (max-width: 992px) {
+		font-size: 32px;
+		line-height: 40px;
+	}
+	@media (max-width: 768px) {
+		font-size: calc(24px + 8 * ((100vw - 480px) / (768 - 480)));
+		line-height: calc(32px + 8 * ((100vw - 480px) / (768 - 480)));
+	}
+	@media (max-width: 480px) {
+		font-size: 24px;
+		line-height: 32px;
+	}
+}
+h2 {
+	font-family: 'NunitoSans', sans-serif;
+	font-size: 32px;
+	line-height: 40px;
+	@media (max-width: 1200px) {
+		font-size: calc(28px + 4 * ((100vw - 992px) / (1200 - 992)));
+		line-height: calc(36px + 4 * ((100vw - 992px) / (1200 - 992)));
+	}
+	@media (max-width: 992px) {
+		font-size: 28px;
+		line-height: 36px;
+	}
+	@media (max-width: 768px) {
+		font-size: calc(24px + 4 * ((100vw - 480px) / (768 - 480)));
+		line-height: calc(32px + 4 * ((100vw - 480px) / (768 - 480)));
+	}
+	@media (max-width: 480px) {
+		font-size: 24px;
+		line-height: 32px;
+	}
+}
+h3 {
+	font-family: 'NunitoSans', sans-serif;
+	font-size: 28px;
+	line-height: 36px;
+	@media (max-width: 1200px) {
+		font-size: calc(25px + 3 * ((100vw - 992px) / (1200 - 992)));
+		line-height: calc(33px + 3 * ((100vw - 992px) / (1200 - 992)));
+	}
+	@media (max-width: 992px) {
+		font-size: 25px;
+		line-height: 33px;
+	}
+	@media (max-width: 768px) {
+		font-size: calc(22px + 3 * ((100vw - 480px) / (768 - 480)));
+		line-height: calc(30px + 3 * ((100vw - 480px) / (768 - 480)));
+	}
+	@media (max-width: 480px) {
+		font-size: 22px;
+		line-height: 30px;
+	}
+}
+h4 {
+	font-family: 'NunitoSans', sans-serif;
+	font-size: 24px;
+	line-height: 32px;
+	@media (max-width: 1200px) {
+		font-size: calc(22px + 2 * ((100vw - 992px) / (1200 - 992)));
+		line-height: calc(30px + 2 * ((100vw - 992px) / (1200 - 992)));
+	}
+	@media (max-width: 992px) {
+		font-size: 22px;
+		line-height: 30px;
+	}
+	@media (max-width: 768px) {
+		font-size: calc(20px + 2 * ((100vw - 480px) / (768 - 480)));
+		line-height: calc(28px + 2 * ((100vw - 480px) / (768 - 480)));
+	}
+	@media (max-width: 480px) {
+		font-size: 20px;
+		line-height: 28px;
+	}
+}
+h5 {
+	font-family: 'NunitoSans', sans-serif;
+	font-size: 20px;
+	line-height: 28px;
+	@media (max-width: 768px) {
+		font-size: calc(18px + 2 * ((100vw - 480px) / (768 - 480)));
+		line-height: calc(26px + 2 * ((100vw - 480px) / (768 - 480)));
+	}
+	@media (max-width: 480px) {
+		font-size: 18px;
+		line-height: 26px;
+	}
+}
+h6 {
+	font-family: 'NunitoSans', sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	@media (max-width: 768px) {
+		font-size: calc(14px + 2 * ((100vw - 480px) / (768 - 480)));
+		line-height: calc(22px + 2 * ((100vw - 480px) / (768 - 480)));
+	}
+	@media (max-width: 480px) {
+		font-size: 14px;
+		line-height: 22px;
+	}
+}
+.text {
+	&-lg {
+		font-size: 18px;
+		line-height: 26px;
+		@media (max-width: 768px) {
+			font-size: calc(16px + 2 * ((100vw - 480px) / (768 - 480)));
+			line-height: calc(24px + 2 * ((100vw - 480px) / (768 - 480)));
+		}
+		@media (max-width: 480px) {
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+	&-md {
+		font-size: 16px;
+		line-height: 24px;
+		@media (max-width: 768px) {
+			font-size: calc(14px + 2 * ((100vw - 480px) / (768 - 480)));
+			line-height: calc(22px + 2 * ((100vw - 480px) / (768 - 480)));
+		}
+		@media (max-width: 480px) {
+			font-size: 14px;
+			line-height: 22px;
+		}
+	}
+	&-sm {
+		font-size: 14px;
+		line-height: 22px;
+		@media (max-width: 768px) {
+			font-size: calc(12px + 2 * ((100vw - 480px) / (768 - 480)));
+			line-height: calc(20px + 2 * ((100vw - 480px) / (768 - 480)));
+		}
+		@media (max-width: 480px) {
+			font-size: 12px;
+			line-height: 20px;
+		}
+	}
+	&-xs {
+		font-size: 12px;
+		line-height: 20px;
+		@media (max-width: 768px) {
+			font-size: calc(10px + 2 * ((100vw - 480px) / (768 - 480)));
+			line-height: calc(18px + 2 * ((100vw - 480px) / (768 - 480)));
+		}
+		@media (max-width: 480px) {
+			font-size: 10px;
+			line-height: 18px;
+		}
+	}
+	&--green {
+		color: #42d38b;
+	}
+	&--red {
+		color: #bb251a;
+	}
+	&--underline {
+		text-decoration: underline;
+	}
+}
+a.text {
+	&--underline {
+		&:hover {
+			color: #039855;
+			transition: ease 0.5s;
+		}
+	}
+	&--red {
+		&:hover {
+			color: #bb251a;
+			transition: ease 0.5s;
+		}
+	}
+	&--green {
+		&:hover {
+			color: #039855;
+			transition: ease 0.5s;
+		}
+	}
+}
+
+html {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+body {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+}
+
+.btn {
+	@include no-btn();
+	border-radius: 30px;
+	font-weight: 500;
+	padding: 8px 20px;
+	max-width: max-content;
+	display: block;
+	transform: translateY(0px);
+	transition: ease 0.5s;
+	&:hover,
+	&:active,
+	&:disabled,
+	&.disabled {
+		transition: ease 0.5s;
+	}
+	&:hover {
+		transform: translateY(-1px);
+	}
+	&:active,
+	&:disabled,
+	&.disabled {
+		transform: translateY(1px) !important;
+	}
+	&:disabled,
+	&.disabled {
+		cursor: not-allowed !important;
+	}
+	&--green {
+		background: #42d38b;
+		border: 1px solid #42d38b;
+		color: #ffffff;
+		box-shadow: 0 0 0 transparent;
+		&:hover {
+			box-shadow: $shadowSM;
+			background: #039855;
+			border: 1px solid #039855;
+		}
+		&:active {
+			background: #42d38b;
+			border: 1px solid #42d38b;
+			box-shadow: 0 0 0 transparent;
+		}
+		&:disabled,
+		&.disabled {
+			background: #bff0d8;
+			border: 1px solid #bff0d8;
+			box-shadow: 0 0 0 transparent;
+		}
+	}
+	&--white {
+		background: #ffffff;
+		border: 1px solid #ffffff;
+		color: #42d38b;
+		font-weight: 600;
+		box-shadow: 0 0 0 transparent;
+		a {
+			color: #42d38b;
+			font-weight: 600;
+		}
+		&:hover {
+			box-shadow: $shadowSM;
+		}
+		&:active {
+			box-shadow: 0 0 0 transparent;
+		}
+		&:disabled,
+		&.disabled {
+			box-shadow: 0 0 0 transparent;
+		}
+	}
+	@media (max-width: 480px) {
+		padding: 8px 16px;
+	}
+}
