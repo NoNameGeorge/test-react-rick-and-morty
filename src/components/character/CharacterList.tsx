@@ -5,6 +5,7 @@ import { characterSlice } from '../../store/slices/characterSlice'
 import { getCharacterListWithOption } from '../../store/actions/characterActions'
 
 import CharacterListItem from './CharacterListItem'
+import Loader from '../Loader'
 
 import classes from './CharacterList.module.scss'
 
@@ -21,21 +22,21 @@ const CharacterList: FC = () => {
 
 	useEffect(() => {
 		dispatch(characterSlice.actions.setPage(1))
-		dispatch(getCharacterListWithOption(filterSettings))
+		dispatch(getCharacterListWithOption({ ...filterSettings, page: 1 }))
 	}, [filterSettings.gender, filterSettings.name, filterSettings.species, filterSettings.status])
 
 	useEffect(() => {
-		;(async () => {
+		; (async () => {
 			if (list.length) {
 				const response = await dispatch(getCharacterListWithOption(filterSettings))
-	
+
 				setEndCharacters(!response)
 			}
 		})()
 	}, [page])
 
 	useEffect(() => {
-		;(async () => {
+		; (async () => {
 			if (height < 100 && !isLoading && !endCharacters) {
 				dispatch(characterSlice.actions.setPage(page + 1))
 			}
@@ -64,7 +65,9 @@ const CharacterList: FC = () => {
 			className={classes.wrapper}
 		>
 			<div className={classes.inner}>
-				{list.length &&
+				{isLoading && !list.length && <Loader />}
+				{!isLoading &&
+					list.length &&
 					list.map((listItem) => {
 						return (
 							<CharacterListItem

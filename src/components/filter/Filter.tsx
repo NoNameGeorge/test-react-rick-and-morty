@@ -28,12 +28,14 @@ const Filter: FC<FilterProps> = ({ isFixed }) => {
 				</h1> */}
 				<div className={classes.filterWrapper}>
 					<FilterInput />
-					<button
-						className={classes.button}
-						onClick={() => handleClick()}
-					>
-						Найти
-					</button>
+					{locate.pathname === '/' && (
+						<button
+							className={classes.button}
+							onClick={() => handleClick()}
+						>
+							Найти
+						</button>
+					)}
 				</div>
 				<FilterByStatus />
 				<FilterByGender />
