@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import { useAppDispatch } from '../../hooks/redux'
+import { characterSlice } from '../../store/slices/characterSlice'
 import { ICharacter } from '../../types/ICharacter'
 
 import classes from './CharacterListItem.module.scss'
@@ -9,10 +11,19 @@ interface CharacterListItemProps {
 }
 
 const CharacterListItem: FC<CharacterListItemProps> = ({ info }) => {
+	const dispatch = useAppDispatch()
+
 	const { name, image, species, status, gender } = info
 
+	const handleClick = () => {
+		dispatch(characterSlice.actions.setActiveCharacter(info))
+	}
+
 	return (
-		<div className={classes.wrapper}>
+		<div
+			className={classes.wrapper}
+			onClick={() => handleClick()}
+		>
 			<img
 				alt=''
 				src={image}

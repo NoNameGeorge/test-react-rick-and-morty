@@ -1,0 +1,25 @@
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	margin: 10px 0;
+
+	span {
+		display: block;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		border: 3px solid #A9D3E9;
+		border-top: 3px solid transparent;
+		animation: 1s linear 0s infinite running loader;
+	}
+}
+@keyframes loader {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

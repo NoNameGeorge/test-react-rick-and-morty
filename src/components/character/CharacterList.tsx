@@ -20,12 +20,23 @@ const CharacterList: FC = () => {
 	const { page } = filterSettings
 
 	useEffect(() => {
+		dispatch(characterSlice.actions.setPage(1))
 		dispatch(getCharacterListWithOption(filterSettings))
+	}, [filterSettings.gender, filterSettings.name, filterSettings.species, filterSettings.status])
+
+	useEffect(() => {
+		;(async () => {
+			if (list.length) {
+				const response = await dispatch(getCharacterListWithOption(filterSettings))
+	
+				setEndCharacters(!response)
+			}
+		})()
 	}, [page])
 
 	useEffect(() => {
 		;(async () => {
-			if (height < 100 && !isLoading) {
+			if (height < 100 && !isLoading && !endCharacters) {
 				dispatch(characterSlice.actions.setPage(page + 1))
 			}
 		})()

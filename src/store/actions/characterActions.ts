@@ -46,6 +46,7 @@ export const getCharacterListWithOption = (settings: IFilter) => async (dispatch
 		)
 
 		const list = response.data.results
+		const hasNextPage = response.data.info.next
 
 		if (!list.length) {
 			throw new Error("Не найдено таких персонажей :'(")
@@ -59,7 +60,7 @@ export const getCharacterListWithOption = (settings: IFilter) => async (dispatch
 
 		dispatch(characterSlice.actions.setLoading(false))
 
-		return ''
+		return hasNextPage
 	} catch (e: any) {
 		dispatch(characterSlice.actions.setLoading(false))
 		dispatch(characterSlice.actions.setCharacters([]))
