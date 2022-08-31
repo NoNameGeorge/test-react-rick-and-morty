@@ -1,28 +1,25 @@
 import { FC, useEffect } from 'react'
-import CharacterList from '../components/list/CharacterList'
 
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
 import { getCharacterListWithOption } from '../store/actions/characterActions'
+
+import { Filter } from '../components/filter'
+import CharacterList from '../components/list/CharacterList'
 
 import classes from './ListPage.module.scss'
 
 const ListPage: FC = () => {
 	const dispatch = useAppDispatch()
 
-	// const { page } = useAppSelector((state) => state.character)
+	const { filterSettings: settgins } = useAppSelector((state) => state.character)
 
 	useEffect(() => {
-		// if (!page) {
-			dispatch(
-				getCharacterListWithOption({
-					page: 0,
-				})
-			)
-		// }
-	}, [])
+		dispatch(getCharacterListWithOption(settgins))
+	}, [settgins])
 
 	return (
 		<div className={classes.wrapper}>
+			<Filter isFixed />
 			<CharacterList />
 		</div>
 	)

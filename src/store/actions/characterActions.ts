@@ -1,16 +1,34 @@
 import axios from "axios";
 import { AppDispatch } from "..";
-import { IRequest } from "../../types/IRequest";
+import { IFilter } from "../../types/IFilter";
 import { characterSlice } from "../slices/characterSlice";
 
-export const getCharacterListWithOption = (settings: IRequest) => async (dispatch: AppDispatch) => {
+const getStringSettings = (settings: IFilter): string => {
+	const tempStorage: string[] = []
+
+	if (settings.name) {
+		tempStorage.push(`name=${settings.name}`)
+	}
+
+	let stringSettings = tempStorage.join('&')
+
+	return stringSettings
+}
+
+export const getCharacterListWithOption = (settings: IFilter) => async (dispatch: AppDispatch) => {
 	try {
 		dispatch(characterSlice.actions.setLoading(true))
-		const response = await axios.get(`https://rickandmortyapi.com/api/character?page=${settings.page}`)
 
-		
+		const stringSettings = getStringSettings(settings)
 
-		console.log(response)
+
+		console.log(settings)
+		console.log(stringSettings)
+
+
+		// const response = await axios.get(`https://rickandmortyapi.com/api/character?page=${settings.page}`)
+		// console.log(response)
+
 
 // 		localStorage.setItem('token', response.data.accessToken)
 // 		dispatch(userSlice.actions.setAuth(true))
