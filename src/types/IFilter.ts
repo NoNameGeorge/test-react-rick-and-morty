@@ -17,7 +17,7 @@ export interface GenderList {
 
 export interface IFilter {
     name: string
-    page: 0
+    page: number
     status: StatusList[]
     species: SpeciesList[]
     gender: GenderList[]

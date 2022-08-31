@@ -18,7 +18,7 @@ const initialState: CharacterState = {
 	activeCharacter: null,
 	filterSettings: {
 		name: '',
-		page: 0,
+		page: 1,
 		status: [
 			{ name: 'Alive', value: false },
 			{ name: 'Dead', value: false },
@@ -94,10 +94,10 @@ export const characterSlice = createSlice({
 		},
 		setSearchName(state, action: PayloadAction<string>) {
 			state.filterSettings.name = action.payload
-		}
-		// setPage(state, action: PayloadAction<number>) {
-		// 	state.page = action.payload
-		// },
+		},
+		setPage(state, action: PayloadAction<number>) {
+			state.filterSettings.page = action.payload
+		},
 	},
 })
 

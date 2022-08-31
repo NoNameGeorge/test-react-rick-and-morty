@@ -1,12 +1,13 @@
 import { FC, useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from '../hooks/redux'
-import { getCharacterListWithOption } from '../store/actions/characterActions'
+import { characterSlice } from '../store/slices/characterSlice'
 
 import { Filter } from '../components/filter'
 import CharacterList from '../components/list/CharacterList'
 
 import classes from './ListPage.module.scss'
+import { getCharacterListWithOption } from '../store/actions/characterActions'
 
 const ListPage: FC = () => {
 	const dispatch = useAppDispatch()
@@ -14,6 +15,7 @@ const ListPage: FC = () => {
 	const { filterSettings: settgins } = useAppSelector((state) => state.character)
 
 	useEffect(() => {
+		dispatch(characterSlice.actions.setPage(1))
 		dispatch(getCharacterListWithOption(settgins))
 	}, [settgins.gender, settgins.name, settgins.species, settgins.status])
 

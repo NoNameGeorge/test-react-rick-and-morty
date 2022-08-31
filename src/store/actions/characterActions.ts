@@ -51,7 +51,12 @@ export const getCharacterListWithOption = (settings: IFilter) => async (dispatch
 			throw new Error("Не найдено таких персонажей :'(")
 		}
 
-		dispatch(characterSlice.actions.setCharacters(list))
+		if (settings.page === 1) {
+			dispatch(characterSlice.actions.setCharacters(list))
+		} else {
+			dispatch(characterSlice.actions.addCharacters(list))
+		}
+
 		dispatch(characterSlice.actions.setLoading(false))
 
 		return ''
