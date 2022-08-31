@@ -1,18 +1,41 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
+
+import { ICharacter } from '../../types/ICharacter'
+
+import classes from './CharacterListItem.module.scss'
 
 interface CharacterListItemProps {
-	name: string
-	image: string
+	info: ICharacter
 }
 
-const CharacterListItem: FC<CharacterListItemProps> = ({ name, image }) => {
+const CharacterListItem: FC<CharacterListItemProps> = ({ info }) => {
+	const { name, image, species, status, gender } = info
+
 	return (
-		<div>
+		<div className={classes.wrapper}>
 			<img
 				alt=''
 				src={image}
+				className={classes.image}
 			/>
-            <span>{name}</span>
+			<div className={classes.infoWrapper}>
+				<div>
+					<span>Имя: </span>
+					{name}
+				</div>
+				<div>
+					<span>Статус: </span>
+					{status}
+				</div>
+				<div>
+					<span>Пол: </span>
+					{gender}
+				</div>
+				<div>
+					<span>Вид: </span>
+					{species}
+				</div>
+			</div>
 		</div>
 	)
 }

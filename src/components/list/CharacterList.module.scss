@@ -1,0 +1,9 @@
+.wrapper {
+    overflow-y: scroll;
+    height: 100%;    
+    .inner {
+        height: max-content;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}

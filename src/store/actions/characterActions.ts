@@ -6,6 +6,8 @@ import { characterSlice } from '../slices/characterSlice'
 const getStringSettings = (settings: IFilter): string => {
 	const tempStorage: string[] = []
 
+	tempStorage.push(`page=${settings.page}`)
+
 	if (settings.name) {
 		tempStorage.push(`name=${settings.name}`)
 	}

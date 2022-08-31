@@ -15,7 +15,7 @@ const ListPage: FC = () => {
 
 	useEffect(() => {
 		dispatch(getCharacterListWithOption(settgins))
-	}, [settgins])
+	}, [settgins.gender, settgins.name, settgins.species, settgins.status])
 
 	return (
 		<div className={classes.wrapper}>
