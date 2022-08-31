@@ -69,33 +69,27 @@ export const characterSlice = createSlice({
 			state.activeCharacter = action.payload
 		},
 		toggleStatus(state, action: PayloadAction<Status>) {
-			state.filterSettings.status = state.filterSettings.status.map((statusItem) => {
-				if (statusItem.name === action.payload) return {
-					...statusItem,
-					value: !statusItem.value
+			state.filterSettings.status = state.filterSettings.status.map((item) => {
+				return {
+					...item,
+					value: item.name === action.payload ? !item.value : false
 				}
-				
-				return statusItem
 			})
 		},
 		toggleGender(state, action: PayloadAction<Gender>) {
-			state.filterSettings.gender = state.filterSettings.gender.map((genderItem) => {
-				if (genderItem.name === action.payload) return {
-					...genderItem,
-					value: !genderItem.value
+			state.filterSettings.gender = state.filterSettings.gender.map((item) => {
+				return {
+					...item,
+					value: item.name === action.payload ? !item.value : false
 				}
-				
-				return genderItem
 			})
 		},
 		toggleSpecies(state, action: PayloadAction<Species>) {
-			state.filterSettings.species = state.filterSettings.species.map((speciesItem) => {
-				if (speciesItem.name === action.payload) return {
-					...speciesItem,
-					value: !speciesItem.value
+			state.filterSettings.species = state.filterSettings.species.map((item) => {
+				return {
+					...item,
+					value: item.name === action.payload ? !item.value : false
 				}
-				
-				return speciesItem
 			})
 		},
 		setSearchName(state, action: PayloadAction<string>) {

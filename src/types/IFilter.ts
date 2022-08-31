@@ -1,18 +1,24 @@
 import { Status, Species, Gender } from "./ICharacter"
 
+export interface StatusList {
+    name: Status
+    value: boolean
+}
+
+export interface SpeciesList {
+    name: Species
+    value: boolean
+}
+
+export interface GenderList {
+    name: Gender
+    value: boolean
+}
+
 export interface IFilter {
     name: string
     page: 0
-    status: {
-        name: Status
-        value: boolean
-    }[]
-    species: {
-        name: Species
-        value: boolean
-    }[]
-    gender: {
-        name: Gender
-        value: boolean
-    }[]
+    status: StatusList[]
+    species: SpeciesList[]
+    gender: GenderList[]
 }
