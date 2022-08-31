@@ -1,21 +1,29 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
+
+import { useAppDispatch } from '../../hooks/redux'
+import useDebounce from '../../hooks/use-debounce'
+import { characterSlice } from '../../store/slices/characterSlice'
 
 import classes from './FilterInput.module.scss'
 
-interface FilterInputProps {
-	placeholder: string
-	value: string
-	onChange: Function
-}
+const FilterInput: FC = () => {
+	const dispatch = useAppDispatch()
 
-const FilterInput: FC<FilterInputProps> = ({ placeholder, value, onChange }) => {
+	const [value, setValue] = useState('')
+
+	const debouncedValue = useDebounce(value, 500)
+
+	useEffect(() => {
+		dispatch(characterSlice.actions.setSearchName(debouncedValue))
+	}, [debouncedValue])
+
 	return (
 		<input
 			type='text'
+			placeholder='Введите имя персонажа...'
             className={classes.input}
-			placeholder={placeholder}
 			value={value}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
 		/>
 	)
 }

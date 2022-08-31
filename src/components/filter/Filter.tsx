@@ -1,39 +1,40 @@
-import { FC, useState } from 'react';
+import { FC } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
-import FilterInput from './FilterInput';
-
-import FilterByStatus from './FilterByStatus';
-import FilterByGender from './FilterByGender';
+import FilterInput from './FilterInput'
+import FilterByStatus from './FilterByStatus'
+import FilterByGender from './FilterByGender'
+import FilterBySpecies from './FilterBySpecies'
 
 import classes from './Filter.module.scss'
-import FilterBySpecies from './FilterBySpecies';
 
 const Filter: FC = () => {
-    const [name, setName] = useState('')
-    // const [status, setStatus] = useState(false)
-    // const [species, setSpecies] = useState(false)
-    // const [gender, setGender] = useState(false)
+	const navigate = useNavigate()
+	const locate = useLocation()
 
-    return (
-        <div className={classes.wrapper}>
-            <h1 className={classes.title}>Найдите своего любимого героя "The Rick and Morty":</h1>
-            <FilterInput 
-                placeholder='Введите имя персонажа...'
-                value={name}
-                onChange={setName}
-            />
-            <FilterByStatus />
-            <FilterByGender />
-            <FilterBySpecies />
-            {/* 
-            
+	const handleClick = () => {
+        if (locate.pathname === '/') navigate('/list')
 
-            <div className={classes.subtitle}>Выберите пол персонажа:</div>
+        
+    }
 
-            <div className={classes.subtitle}>Выберите вид персонажа:</div> */}
+	return (
+		<div className={classes.wrapper}>
+			<h1 className={classes.title}>Найдите своего любимого героя "The Rick and Morty":</h1>
+			<div className={classes.filterWrapper}>
+				<FilterInput />
+				<button
+					className={classes.button}
+					onClick={() => handleClick()}
+				>
+					Найти
+				</button>
+			</div>
+			<FilterByStatus />
+			<FilterByGender />
+			<FilterBySpecies />
+		</div>
+	)
+}
 
-        </div>
-    );
-};
-
-export default Filter;
+export default Filter

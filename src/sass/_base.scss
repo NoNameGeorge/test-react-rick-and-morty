@@ -25,24 +25,9 @@ body {
 	min-height: 100vh;
 }
 
-
-
-
-
-
-
-
-
-
-h1,
-.text-h1 {
-	font-family: 'NunitoSans', sans-serif;
-	font-size: 32px;
-	line-height: 40px;
-	// @media (max-width: 1200px) {
-	// 	font-size: calc(32px + 4 * ((100vw - 992px) / (1200 - 992)));
-	// 	line-height: calc(40px + 4 * ((100vw - 992px) / (1200 - 992)));
-	// }
+h1 {
+	font-size: 24px;
+	line-height: 32px;
 	@media (max-width: 992px) {
 		font-size: 32px;
 		line-height: 40px;
@@ -56,6 +41,14 @@ h1,
 		line-height: 32px;
 	}
 }
+
+
+
+
+
+
+
+
 h2 {
 	font-family: 'NunitoSans', sans-serif;
 	font-size: 32px;

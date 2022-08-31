@@ -98,6 +98,9 @@ export const characterSlice = createSlice({
 				return speciesItem
 			})
 		},
+		setSearchName(state, action: PayloadAction<string>) {
+			state.filterSettings.name = action.payload
+		}
 		// setPage(state, action: PayloadAction<number>) {
 		// 	state.page = action.payload
 		// },
