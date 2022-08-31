@@ -4,5 +4,5 @@
 
 *Ссылка на деплой* - https://test-react-rick-and-morty-2.vercel.app/
 
-***How to install*
+*How to install*
 Download -> npm i -> npm run build -> npm run start -> successful start
