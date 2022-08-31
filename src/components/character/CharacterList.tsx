@@ -26,7 +26,7 @@ const CharacterList: FC = () => {
 	}, [filterSettings.gender, filterSettings.name, filterSettings.species, filterSettings.status])
 
 	useEffect(() => {
-		; (async () => {
+		;(async () => {
 			if (list.length) {
 				const response = await dispatch(getCharacterListWithOption(filterSettings))
 
@@ -36,7 +36,7 @@ const CharacterList: FC = () => {
 	}, [page])
 
 	useEffect(() => {
-		; (async () => {
+		;(async () => {
 			if (height < 100 && !isLoading && !endCharacters) {
 				dispatch(characterSlice.actions.setPage(page + 1))
 			}
@@ -65,9 +65,11 @@ const CharacterList: FC = () => {
 			className={classes.wrapper}
 		>
 			<div className={classes.inner}>
-				{isLoading && !list.length && <Loader />}
+				{isLoading && !list.length && !error && <Loader />}
+				{!isLoading && !list.length && error}
 				{!isLoading &&
-					list.length &&
+					list.length > 0 &&
+					!error &&
 					list.map((listItem) => {
 						return (
 							<CharacterListItem
